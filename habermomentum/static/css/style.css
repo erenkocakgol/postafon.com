@@ -1,0 +1,520 @@
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: none; /* Başlangıçta görünmez */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #0056b3; /* Hover rengini değiştirme */
+}
+
+/* PreHeader Container */
+.preheader-container {
+    background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);
+    background-color: #f8f9fa; /* Daha açık bir gri tonu */
+    padding: 0.5rem 1rem; /* Kenar boşluklarını arttırdım */
+    display: flex;
+    justify-content: space-between; /* İçerikleri yayma */
+    align-items: center;
+    flex-wrap: wrap; /* İçeriğin satıra sığmıyorsa taşmasını sağlar */
+}
+
+/* PreHeader Email Link */
+.preheader-container .email-link {
+    color: #343a40;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.preheader-container .email-link:hover {
+    color: #007bff; /* Hover rengi */
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.preheader-container .social-icons a {
+    color: #343a40;
+    font-size: 1.2rem; /* İkon boyutu */
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.preheader-container .social-icons a:hover {
+    color: #007bff; /* Hover rengi */
+}
+
+/* WhatsApp Link */
+.preheader-container .whatsapp-link {
+    display: flex;
+    align-items: center;
+    color: #343a40;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.preheader-container .whatsapp-link i {
+    font-size: 1.2rem; /* İkon boyutu */
+    margin-left: 0.5rem; /* İkon ile metin arasındaki boşluk */
+}
+
+.preheader-container .whatsapp-link:hover {
+    color: #25d366; /* WhatsApp'ın yeşil rengi */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .preheader-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .preheader-container .social-icons {
+        margin-top: 0.5rem;
+    }
+    
+    .preheader-container .email-link {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Hero Section */
+.hero_area {
+    position: relative;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-color: #000000;
+    border-style: solid;
+    
+}
+
+.hero_bg_box {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+}
+
+/* Header Section */
+.header_section {
+    background-color: #ffffff; /* Header arka plan rengi */
+    padding: 1rem 1rem; /* Kenar boşluklarını arttırdım */
+}
+
+.custom_nav-container {
+    padding: 0 1rem;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-color: #0022ff;
+    border-style: solid;
+    box-shadow: 0 0 10px #00ff00,
+              0 0 20px #00ff00,
+              0 0 30px #00ff00,
+              0 0 40px #00ff00;
+}
+
+@keyframes glow {
+    0% {
+      box-shadow: 0 0 10px #00ff00;
+    }
+    50% {
+      box-shadow: 0 0 20px #ff0000;
+    }
+    100% {
+      box-shadow: 0 0 10px #00ff00;
+    }
+  }
+
+.navbar-brand img.logo-img {
+    width: 26vw;
+    height: auto;
+}
+
+.navbar-brand span {
+    margin-right: 1rem;
+    background-color: rgba(8, 0, 255, 1); /* Başlangıç opaklığı */
+    padding: 0.2rem 0.5rem; /* Yazı etrafında biraz boşluk */
+    border-radius: 0.3rem; /* Köşeleri yuvarlat */
+    transition: background-color 0.4s ease; /* Arka plan rengindeki değişimi yumuşak yapar */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+    font-size: 1rem;
+    margin-right: 1rem;
+    background-color: rgba(8, 0, 255, 1); /* Başlangıç opaklığı */
+    padding: 0.2rem 0.5rem; /* Yazı etrafında biraz boşluk */
+    border-radius: 0.3rem; /* Köşeleri yuvarlat */
+    transition: background-color 0.4s ease; /* Arka plan rengindeki değişimi yumuşak yapar */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Odağa yaklaştığında opaklık artar */
+}
+
+.navbar-nav .dropdown-menu {
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #0022ff;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start; /* Menü öğelerini sola hizalar */
+    }
+    
+    .navbar-nav .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+    .bg_img_box img {
+        width: 100%;
+        height: auto; /* Yüksekliği otomatik ayarla */
+    }
+}
+
+/* Navbar Brand */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 26vw; /* Logo boyutunu ayarlayın */
+    height: auto;
+    margin-right: 0.5rem; /* Logo ile başlık arasındaki boşluk */
+}
+
+.site-title {
+    font-size: 1.5rem; /* Başlık boyutu */
+    font-weight: bold;
+    color: #ffea00; /* Başlık rengi */
+}
+
+.navbar-toggler {
+    border: none; /* Kenarlık varsa kaldırın */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* Arka plan rengini kaldırır, isteğe bağlı */
+    padding: 0.5rem; /* Butonun iç boşluğunu ayarlar */
+    cursor: pointer; /* Butona tıklanabilir olduğunu gösterir */
+}
+
+.navbar-toggler-icon {
+    display: none; /* Varsayılan ikon arka plan resmini gizler */
+}
+
+.navbar-toggler::before {
+    content: '\2630'; /* Üç yatay çizgi karakteri */
+    font-size: 1.5rem; /* İkonun boyutu */
+    color: #fff; /* İkonun rengi */
+    display: inline-block;
+    line-height: 1.5; /* İkonun yüksekliği */
+}
+
+.navbar-toggler:hover {
+    background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%); /* Hover rengi */
+    transition: background 0.3s ease; /* Hover geçiş efekti */
+}
+
+#bannerCarousel {
+    background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);
+}
+
+
+
+
+
+
+
+
+
+/* Genel ayarlar */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #004080;
+}
+
+.navbar .nav-link, .navbar .navbar-brand {
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover, .navbar .navbar-brand:hover {
+    color: #00bea1;
+}
+
+.navbar .dropdown-menu {
+    background-color: #004080;
+    border: none;
+}
+
+.navbar .dropdown-item {
+    color: #fff;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #00bea1;
+    color: #004080;
+}
+
+/* PreHeader Area */
+.preheader-container {
+    background-color: #002244;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.preheader-container a {
+    color: #f4f4f4;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.preheader-container a:hover {
+    color: #00bea1;
+}
+
+/* Hero Area */
+.hero_area .hero_bg_box {
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero_area h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero_area p {
+    color: #e0e0e0;
+    font-size: 1.25rem;
+}
+
+/* Banner Area */
+#bannerCarousel .carousel-item {
+    position: relative;
+}
+
+#bannerCarousel img {
+    max-height: 400px;
+    object-fit: cover;
+    padding: 0 1rem;
+    border: 5px solid #004080;
+    box-shadow: 0 0 10px #004080;
+    transition: box-shadow 0.3s;
+}
+
+#bannerCarousel .carousel-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+#bannerCarousel .carousel-caption h5 {
+    font-size: 1.75rem;
+    color: #fff;
+}
+
+#bannerCarousel .carousel-caption p {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+#bannerCarousel .carousel-caption .btn {
+    background-color: #00bea1;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+#bannerCarousel .carousel-caption .btn:hover {
+    background-color: #004080;
+}
+
+/* Footer */
+footer {
+    background-color: #002244;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: #00bea1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .carousel-caption h5 {
+        font-size: 1.25rem;
+    }
+    .carousel-caption p {
+        font-size: 0.875rem;
+    }
+    .carousel-caption .btn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Genel stil ayarları */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.preheader-container {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+.email-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    color: #333;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+}
+
+.header_section {
+    background-color: #ffffff;
+    padding: 20px 0;
+}
+
+.hero_area {
+    position: relative;
+}
+
+.hero_bg_box {
+    height: 300px;
+}
+
+.card {
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.like-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.like-button:hover {
+    color: #dc3545;
+}
+
+.footer_area {
+    background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);
+    color: #343a40;
+    padding: 20px 0;
+    padding: 0 1rem;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-color: #0022ff;
+    border-style: solid;
+    box-shadow: 0 0 10px #00ff00,
+              0 0 20px #00ff00,
+              0 0 30px #00ff00,
+              0 0 40px #00ff00;
+}
+
+.footer_area h5 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.footer_area a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer_area a:hover {
+    text-decoration: underline;
+    color: #007bff; /* Hover rengi */
+
+}
+
+/* Responsive ayarları */
+@media (max-width: 768px) {
+    .footer_area {
+        text-align: center;
+    }
+}
+
+h4.card-title {
+    color: #343a40;
+}
+
+p.card-text {
+    color: #343a40;
+}
