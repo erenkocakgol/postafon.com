@@ -2,13 +2,15 @@ from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash, authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from user.models import UserProfile, UserProfileForm, Profile, Post, Channel, ChannelRole
 from home.models import Setting, Menu
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from home.forms import CaptchaForm, ContactFormu
+from django.views.decorators.http import require_POST
+
 
 
 # Kullanıcı profilini görüntüleme ve güncelleme
@@ -149,3 +151,44 @@ def assign_channel_role(request, channel_id, user_id):
     messages.success(request, f'{user.username} için {role} rolü başarıyla atandı.')
     return redirect('channel_detail', channel_id=channel_id)
 
+@login_required
+@require_POST
+def like_post(request, post_id):
+    if not request.user.is_authenticated:
+        messages.warning(request, "Lütfen önce giriş yapınız.")
+        return HttpResponseRedirect(reverse('index'))  # Anasayfaya yönlendir
+
+    post = get_object_or_404(Post, id=post_id)
+
+    # Beğenme durumunu kontrol et
+    if request.user in post.likes.all():
+        # Kullanıcı beğenmişse, beğenmesini kaldır
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        # Kullanıcı beğenmemişse, beğen
+        post.likes.add(request.user)
+        liked = True
+
+    # Beğeni sayısını güncelle
+    like_count = post.likes.count()
+
+    return JsonResponse({'liked': liked, 'like_count': like_count})
+
+def get_like_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)  # post nesnesini burada tanımlıyoruz
+
+    if request.user.is_authenticated:
+        # Beğenme durumunu kontrol et
+        if request.user in post.likes.all():
+            # Kullanıcı beğenmişse, liked=True
+            liked = True
+        else:
+            # Kullanıcı beğenmemişse, liked=False
+            liked = False
+    else:
+        liked = False
+    
+    like_count = post.likes.count()  # Beğeni sayısını al
+    return JsonResponse({'liked': liked, 'like_count': like_count})
+    

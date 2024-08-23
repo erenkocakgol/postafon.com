@@ -14,6 +14,7 @@ urlpatterns = [
 
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('user/', include('user.urls')),
+    path('accounts/', include('user.urls')),
 ]
 # Görselin admin panelinde görüntülenmesine ve görsel yoluna adres satırı ile ulaşışmasına sağlıyor.
 if settings.DEBUG:

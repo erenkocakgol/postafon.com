@@ -46,18 +46,6 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username}'s Profile"
 
-# Post modeli
-class Post(models.Model):
-    title = models.CharField(max_length=255)
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
-    channel = models.ForeignKey('Channel', on_delete=models.CASCADE, related_name='posts')
-    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.title
-
 # Kanal modeli
 class Channel(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -87,3 +75,27 @@ class ChannelRole(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.role} in {self.channel.name}"
+
+
+# Post modeli
+class Post(models.Model):
+    kategori = models.TextField(blank=True, null=True)
+    title = models.CharField(max_length=255)
+    content = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='post_images/', blank=True, null=True)
+    keywords = models.TextField(blank=True, null=True)
+    pp_img = models.ImageField(upload_to='post_images/', blank=True, null=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE, related_name='posts')
+    likes = models.ManyToManyField(User, related_name='liked_posts', blank=True)
+    reposts = models.ManyToManyField(User, related_name='reposts', blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+    status = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def like_count(self):
+        return self.likes.count()
+

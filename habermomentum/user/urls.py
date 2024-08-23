@@ -8,11 +8,14 @@ urlpatterns = [
     path('updateuserprofile/', user_views.updateuserprofile, name="updateuserprofile"),
     path('updateuserpassword/', user_views.updateuserpassword, name="updateuserpassword"),
     path('logout/', home_views.logoutview, name="logout"),
+    path('login/', home_views.index, name="login"),
 
     # Gönderi yönetimi
     path('create_post/', user_views.create_post, name="create_post"),  # Gönderi oluşturma
     path('list_posts/', user_views.list_posts, name="list_posts"),  # Kullanıcının gönderilerini listeleme
-
+    path('like-post/<int:post_id>/', user_views.like_post, name='like-post'),
+    path('get-like-info/<int:post_id>/', user_views.get_like_post, name='like-count-post'),
+    
     # Kanal yönetimi
     path('create_channel/', user_views.create_channel, name="create_channel"),  # Kanal oluşturma
     path('channel/<int:channel_id>/', user_views.channel_detail, name="channel_detail"),  # Kanal detayları

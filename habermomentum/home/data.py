@@ -1,7 +1,7 @@
 import sqlite3
 
 def read_from_db():
-    conn = sqlite3.connect('/Users/erenkocakgol/repos/momentum_ai/news.db')
+    conn = sqlite3.connect('../../momentum_ai/news.db')
     cursor = conn.cursor()
     
     cursor.execute('''

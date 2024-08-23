@@ -1,5 +1,6 @@
 from django.contrib import admin
 from home.models import Setting, Menu, ContactFormMessage, FAQ
+from user.models import Channel
 from django.contrib.auth.models import User
 from django.utils.html import format_html
 
@@ -57,3 +58,4 @@ admin.site.register(Setting, SettingAdmin)
 admin.site.register(ContactFormMessage, ContactFormMessageAdmin)
 admin.site.register(FAQ, FAQAdmin)
 admin.site.register(Menu, MenuAdmin)
+admin.site.register(Channel)
