@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from user.models import UserProfile, UserProfileForm, Profile, Post, Channel, ChannelRole
 from home.models import Setting, Menu
 from django.contrib.auth.models import User

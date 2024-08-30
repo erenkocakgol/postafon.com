@@ -455,6 +455,26 @@ body {
     overflow: hidden;
 }
 
+.card:hover {
+    background: linear-gradient(90deg, #c2df2f 0%, #00bea1 100%);
+}
+
+
+.btn-primary {
+    background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(90deg, #c2df2f 0%, #00bea1 100%);
+}
+
+
+
 .card img {
     object-fit: cover;
 }

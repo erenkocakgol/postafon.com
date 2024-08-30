@@ -13,6 +13,7 @@ import json
 import os
 from pathlib import Path
 from home.data import read_from_db
+from django.utils import timezone
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -21,6 +22,21 @@ config.read(os.path.join(BASE_DIR, "KEYS.CONFIG"))
 
 RECAPTCHA_PUBLIC_KEY = config.get('DJANGO', 'RECAPTCHA_PUBLIC_KEY')
 RECAPTCHA_PRIVATE_KEY = config.get('DJANGO', 'RECAPTCHA_PRIVATE_KEY')
+
+def post_detail(request, post_slug):
+    setting = Setting.objects.first()
+    menu = Menu.objects.filter(status="True")
+    context = {
+        'menu': menu,
+        'setting': setting,
+        'page': 'post_detail',
+        'captcha': CaptchaForm()
+    }
+    for post in Post.objects.filter(image=post_slug):
+        context['post_detail'] = post
+
+    return render(request, 'post_detail.html', context)
+    
 
 def index(request):
     if request.path == "login/":
@@ -160,7 +176,7 @@ def index(request):
         post.save()
 
     
-    
+    today = timezone.now().date()
     setting = Setting.objects.first()
     menu = Menu.objects.filter(status="True")
     post = Post.objects.all()
@@ -171,6 +187,7 @@ def index(request):
         'captcha': CaptchaForm(),
         'articles': all_news,
         'post': post,
+        'today': today,
     }
     return render(request, 'index.html', context)
 

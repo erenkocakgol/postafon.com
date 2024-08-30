@@ -16,7 +16,7 @@ config.read(os.path.join(BASE_DIR, "KEYS.CONFIG"))
 SECRET_KEY = config.get('DJANGO', 'DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["postafon.com.tr", "www.postafon.com.tr"]
 
@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
 	
     'home',
     'user',

@@ -1,0 +1,134 @@
+{% extends "index.html" %}
+{% load static %}
+{% block title %} {{ profile.user.username }} - Profil {% endblock %}
+{% block keywords %} {{ post_detail.keywords }} {% endblock %}
+{% block description %} {{ post_detail.title }} {{ post_detail.keywords }} {% endblock %}
+
+{% block content %}
+
+
+<div class="hero_area">
+	<div class="hero_bg_box">
+		<div class="bg_img_box"></div>
+	</div>
+	
+	<style>
+		.hero_bg_box {
+			background-image: url("{% static 'img/hero-bg.svg' %}"), linear-gradient(90deg, #00bea1 0%, #00bea1 100%);
+			background-position: top left;
+			background-repeat: no-repeat;
+			background-size: cover; /* Bu satırı eklediniz */
+			height: 100%;
+		}
+	</style>
+
+	<div class="container py-4 py-xl-5">
+	<div class="row gy-4 row-cols-1">
+		
+		<div class="col_1">
+			<div class="card" style="background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);">
+				<h4 class="card-title" style="color: rgb(218, 0, 0); padding: 10px; text-align: center; vertical-align: middle;"> {{ post_detail.title }} </h4>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="card">
+				{% if post_detail.image %}
+				<img class="card-img-top w-100 d-block fit-cover" style="height: 400px;" src="{% static 'depo/' %}{{ post_detail.image }}.jpg">
+				{% else %}
+				<img class="card-img-top w-100 d-block fit-cover" style="height: 400px;" src="{% static 'img/haber.jpg' %}">
+				{% endif %}
+				<div class="card-body p-4">
+					<h4 class="card-title" style="color: rgb(172, 0, 0);">{{ post_detail.date }}</h4>
+					<p class="card-text">{{ post_detail.content }}</p>
+					<div class="d-flex" style="display: inline-block; align-items: center;">
+						{% if post_detail.author.username == 'admin' %}
+							<img class="flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{% static 'img/star.svg' %}">
+						{% else %}
+							<img class="flex-shrink-0 me-3 fit-cover" width="50" height="50" src="{% static 'img/' %}{{ post_detail.author.username }}">
+						{% endif %}
+						<div>
+							{% if post_detail.author.username == 'admin' %}
+								{% if post_detail.kategori == "ntvpara" %}
+								<p class="fw-bold mb-0">Yazar: SystemNet AI  </p>
+								<p class="fw-bold mb-0">Etiket: #finans  </p>
+								{% else %}
+								<p class="fw-bold mb-0">Yazar: SystemNet AI  </p>
+								<p class="fw-bold mb-0">Etiket: #{{ post_detail.kategori }}  </p>
+								{% endif %}
+							{% else %}
+								<p class="fw-bold mb-0">Yazar: {{ post_detail.author.username }}  </p>
+								<p class="fw-bold mb-0">Etiket: #{{ post_detail.kategori }}  </p>
+							{% endif %}
+							<div class="like-container" data-post-id="{{ post_detail.id }}">
+								<span class="like-count">{{ post_detail.like_count }}</span>
+								<button class="like-btn">
+									<svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+										<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+									</svg>
+								</button>
+							</div>
+							<style>
+								.like-container {
+									display: flex;
+									align-items: center;
+									cursor: pointer;
+								}
+
+								.like-count {
+									margin-right: 8px;
+									font-size: 1.2em;
+								}
+
+								.like-btn {
+									background: none;
+									border: none;
+									padding: 0;
+									outline: none;
+									display: inline-flex;
+									align-items: center;
+									justify-content: center;
+								}
+
+								.heart-icon {
+									width: 24px;
+									height: 24px;
+									stroke-width: 2;
+									stroke: #555;
+									fill: none;
+									transition: fill 0.3s, stroke 0.3s;
+								}
+
+								.heart-icon.liked {
+									fill: red;
+									stroke: red;
+								}
+
+							</style>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<style>
+				.card a {
+					text-decoration: none;
+				}
+				.card {
+					background: linear-gradient(90deg, #00bea1 0%, #c2df2f 100%);
+				}
+				.card:hover {
+					background: linear-gradient(90deg, #c2df2f 0%, #00bea1 100%);
+				}
+			</style>
+		</div>
+	</div>
+	</div>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.2/font/bootstrap-icons.min.css">
+</div>
+
+
+
+{% endblock %}
