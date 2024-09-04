@@ -2,6 +2,8 @@
 
 **Postafon**, interneti günlük olarak tarayarak haberleri çekerek otomatik olarak OpenAI API'si ile haberleri yeniden yazarak veritabanına kaydeden Momentum AI ile sinerjik olarak çalışan şablon bir web uygulaması, güçlü ve esnek bir yazılımdır. Kullanımı kolay ve entegre edilebilir özellikler sunar.
 
+## Not: Bu yazılımın veritabanını oluşturan Momentum AI yazılımını da kurmanız gerekiyor. Kendi içerik girişinizi yapmak isterseniz bu uyarıyı pas geçin.
+
 ## Bu Yazılımın,
 
 - **Özellik 1:** Front-End'i Bootstrap,
