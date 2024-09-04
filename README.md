@@ -14,9 +14,15 @@
 Postafon'a başlamak için bu depoyu klonlayın ve gerekli bağımlılıkları yükleyin:
 
 git clone https://github.com/erenkocakgol/postafon.com.git
+
 cd Postafon.com
+
 python3 -m venv .venv
+
 source .venv/bin/activate
+
 python -m pip install -r requirements.txt
+
 gunicorn -c gconfig.py
+
 
