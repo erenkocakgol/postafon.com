@@ -26,6 +26,8 @@ source .venv/bin/activate (Windows için farklı olduğuna dikkat edin. Bu komut
 
 python -m pip install -r requirements.txt
 
+cd habermomentum
+
 gunicorn -c gconfig.py
 
 
