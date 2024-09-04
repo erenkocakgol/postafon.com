@@ -22,7 +22,7 @@ cd postafon.com
 
 python3 -m venv .venv
 
-source .venv/bin/activate
+source .venv/bin/activate (Windows için farklı olduğuna dikkat edin. Bu komut macOS ve Linux Debian içindir.)
 
 python -m pip install -r requirements.txt
 
