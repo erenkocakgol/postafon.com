@@ -16,9 +16,9 @@ config.read(os.path.join(BASE_DIR, "KEYS.CONFIG"))
 SECRET_KEY = config.get('DJANGO', 'DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["postafon.com.tr", "www.postafon.com.tr"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -119,12 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_ROOT = "/srv/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+#STATIC_ROOT = "/srv/static/"
 
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_ROOT = "/srv/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+#MEDIA_ROOT = "/srv/media/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
