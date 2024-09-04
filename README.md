@@ -11,7 +11,7 @@
 
 ## Kurulum 💽
 
-Postafon'a başlamak için bu depoyu klonlayın ve gerekli bağımlılıkları yükleyin:
+Postafon'a başlamak için bu depoyu klonlayın, **habermomentum klasörü altında KEYS.CONFIG bilgilerini kendinize göre değiştirin** ve gerekli bağımlılıkları yükleyin:
 
 git clone https://github.com/erenkocakgol/postafon.com.git
 
